@@ -301,7 +301,7 @@
     .about-img {
         flex-basis: auto;
         order: 1;
-        max-width: 85%;
+        max-width: 100%;
         margin: 0 auto;
     }
     

@@ -366,7 +366,7 @@
     .hero-img {
         flex-basis: auto;
         order: 2;
-        max-width: 80%;
+        max-width: 100%;
     }
     
     .hero-content .p1 {
@@ -386,7 +386,7 @@
     }
     
     .hero-content .hero-des {
-        font-size: 0.8rem;
+        font-size: .9rem;
         max-width: 95%;
         margin: 0 auto;
         line-height: 1.4;
@@ -403,10 +403,10 @@
     
     .hero-btn .btn1,
     .hero-btn .btn2 {
-        padding: 12px 24px;
+        padding: 12px 35px;
         font-size: 0.9rem;
         margin-left: 0;
-        width: 180px;
+        width: 250px;
         max-width: 90%;
     }
     
