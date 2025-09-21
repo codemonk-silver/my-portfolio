@@ -1,0 +1,316 @@
+/* Header Container - Your Original Styles */
+.header-container {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 12%;
+    flex-wrap: wrap;
+    animation: slideDown 0.8s var(--smooth-easing);
+    backdrop-filter: blur(10px);
+    transition: all var(--animation-speed) var(--smooth-easing);
+    z-index: 1000;
+}
+
+.header-container:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Logo Styles */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    transition: all var(--animation-speed) var(--smooth-easing);
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    transition: all var(--animation-speed) var(--elastic-easing);
+}
+
+
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, green, #32cd32);
+  transition: width var(--animation-speed) var(--elastic-easing);
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+    color: darkgreen;
+}
+
+/* Hamburger Toggle Button */
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: all var(--animation-speed) var(--smooth-easing);
+    border-radius: 2px;
+}
+
+/* Hamburger Animation When Active */
+.hamburger-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
+}
+
+.hamburger-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+
+
+
+
+/* Medium-Large Screens (992px - 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .header-container {
+        padding: 1% 10%;
+    }
+    
+    .logo {
+        font-size: 1.6rem;
+    }
+    
+    .nav-menu {
+        gap: 2rem;
+    }
+}
+
+/* Medium Screens (768px - 991px) */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .header-container {
+        padding: 2% 8%;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.95rem;
+    }
+}
+
+/* Small-Medium Screens (576px - 767px) - Transition to Mobile */
+@media screen and (max-width: 767px) and (min-width: 576px) {
+    .header-container {
+        padding: 2% 6%;
+        position: relative;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    /* Show hamburger menu */
+    .hamburger-toggle {
+        display: flex;
+    }
+    
+    /* Transform nav menu for mobile */
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--animation-speed) var(--smooth-easing);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-menu a::before {
+        display: none; /* Hide underline animation on mobile */
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(0, 128, 0, 0.1);
+        color: darkgreen;
+    }
+}
+
+/* Mobile Screens (up to 575px) */
+@media screen and (max-width: 575px) {
+    .header-container {
+        padding: 3% 5%;
+        position: relative;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    /* Show hamburger menu */
+    .hamburger-toggle {
+        display: flex;
+    }
+    
+    .hamburger-line {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    /* Mobile nav menu styles */
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        gap: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--animation-speed) var(--smooth-easing);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 0 0 12px 12px;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu a {
+        padding: 0.8rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-menu a::before {
+        display: none; /* Hide underline animation on mobile */
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a:active {
+        background: rgba(0, 128, 0, 0.1);
+        color: darkgreen;
+        transform: scale(1.02);
+    }
+    
+    /* Adjust header hover effect on mobile */
+    .header-container:hover {
+        background: transparent; /* Remove hover background on mobile */
+        box-shadow: none;
+    }
+    
+    /* Animation adjustments for mobile */
+    @keyframes slideDown {
+        from {
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* Extra Small Screens (up to 375px) */
+@media screen and (max-width: 375px) {
+    .header-container {
+        padding: 3% 4%;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .hamburger-line {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .nav-menu a {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+}

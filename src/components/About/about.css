@@ -1,0 +1,554 @@
+.about-container{
+    padding: 5% 12%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 75vh;
+    animation: fadeInUp 1s var(--smooth-easing);
+}
+
+.about-img{
+    flex-basis: 40%;
+     position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.about-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 128, 0, 0.2), rgba(50, 205, 50, 0.2));
+  opacity: 0;
+  transition: opacity var(--animation-speed) var(--smooth-easing);
+  z-index: 1;
+}
+
+.about-img:hover::before {
+  opacity: 1;
+}
+
+.about-img img{
+    width: 100%;
+     transition: all var(--animation-speed-slow) var(--smooth-easing);
+}
+
+.about-img:hover img {
+  transform: scale(1.1);
+}
+
+.about-content{
+    flex-basis: 55%;
+}
+
+.about-title{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.about-des{
+    margin-top: .5rem;
+    font-size: 1rem;
+}
+
+
+.about-tab{
+    display: flex;
+    margin-top: 1rem;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.tablinks{
+    position: relative;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 500;
+     transition: all var(--animation-speed) var(--elastic-easing);
+     margin-bottom: 1rem;
+}
+
+.tablinks:hover {
+  transform: translateY(-2px);
+  color: green;
+}
+
+.tablinks.active-links {
+  animation: bounceIn var(--animation-speed) var(--bounce-easing);
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.tablinks::after{
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0%;
+    width: 0%;
+    height: 3px;
+    background: green;
+    transition: 0.5s;
+}
+
+.tablinks.active-links::after{
+    width: 50%;
+}
+
+.tab-contents ul{
+  display: flex;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    align-items: center;
+    display: flex;
+}
+
+.tab-contents ul li button{
+    margin-right: 15px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: darkgreen;
+    color: white;
+    border: none;
+}
+
+
+
+
+/* Medium-Large Screens (992px - 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .about-container {
+        padding: 5% 10%;
+        min-height: 75vh;
+        gap: 2rem;
+    }
+    
+    .about-title {
+        font-size: 2.2rem;
+    }
+    
+    .about-des {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    
+    .tablinks {
+        font-size: 2.1rem;
+    }
+    
+    .tab-contents ul li button {
+        padding: 11px 20px;
+        margin-right: 18px;
+    }
+}
+
+
+
+/* Medium Screens (768px - 991px) */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .about-container {
+        padding: 4% 8%;
+        flex-direction: column;
+        gap: 2rem;
+        min-height: auto;
+    }
+    
+    .about-content {
+        flex-basis: auto;
+        order: 2;
+        text-align: center;
+    }
+    
+    .about-img {
+        flex-basis: auto;
+        order: 1;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .about-des {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 90%;
+        margin: 0.5rem auto;
+    }
+    
+    .about-tab {
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tablinks {
+        font-size: 1.8rem;
+    }
+    
+    .tab-contents ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .tab-contents ul li button {
+        padding: 10px 18px;
+        margin-right: 10px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Small-Medium Screens (576px - 767px) */
+@media screen and (max-width: 767px) and (min-width: 576px) {
+    .about-container {
+        padding: 4% 6%;
+        flex-direction: column;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+    
+    .about-content {
+        flex-basis: auto;
+        order: 2;
+        text-align: center;
+    }
+    
+    .about-img {
+        flex-basis: auto;
+        order: 1;
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    
+    .about-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-des {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .about-tab {
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+    }
+    
+    .tablinks {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tablinks::after {
+        bottom: -5px;
+        height: 2px;
+    }
+    
+    .tab-contents ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    
+    .tab-contents ul li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .tab-contents ul li button {
+        padding: 9px 16px;
+        margin-right: 8px;
+        font-size: 0.9rem;
+    }
+    
+    /* Reduce hover effects intensity on tablets */
+    .about-img:hover img {
+        transform: scale(1.05);
+    }
+}
+
+/* Mobile Screens (up to 575px) */
+@media screen and (max-width: 575px) {
+    .about-container {
+        padding: 5% 5%;
+        flex-direction: column;
+        gap: 1.2rem;
+        min-height: auto;
+    }
+    
+    .about-content {
+        flex-basis: auto;
+        order: 2;
+        text-align: center;
+    }
+    
+    .about-img {
+        flex-basis: auto;
+        order: 1;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    
+    .about-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-des {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 100%;
+        margin: 0.5rem auto;
+    }
+    
+    .about-tab {
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .tablinks {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+        padding: 0.5rem;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .tablinks::after {
+        bottom: -3px;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .tablinks.active-links::after {
+        width: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .tab-contents ul {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .tab-contents ul li {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tab-contents ul li button {
+        padding: 10px 20px;
+        margin-right: 0;
+        font-size: 0.9rem;
+        width: 200px;
+        max-width: 90%;
+    }
+    
+    /* Disable hover effects on mobile */
+    .about-img:hover img {
+        transform: none;
+    }
+    
+    .about-img:hover::before {
+        opacity: 0;
+    }
+    
+    .tablinks:hover {
+        transform: none;
+        color: inherit;
+    }
+    
+    /* Touch-friendly active states */
+    .tablinks:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    .tab-contents ul li button:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Extra Small Screens (up to 375px) */
+@media screen and (max-width: 375px) {
+    .about-container {
+        padding: 5% 4%;
+    }
+    
+    .about-title {
+        font-size: 1.4rem;
+    }
+    
+    .about-des {
+        font-size: 0.85rem;
+    }
+    
+    .about-tab {
+        gap: 0.8rem;
+    }
+    
+    .tablinks {
+        font-size: 1.2rem;
+        min-width: 100px;
+    }
+    
+    .tab-contents ul li button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 180px;
+    }
+    
+    .about-img {
+        max-width: 90%;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .about-container {
+        padding: 3% 5%;
+        flex-direction: row;
+        gap: 1rem;
+        min-height: auto;
+    }
+    
+    .about-content {
+        order: 1;
+        flex-basis: 60%;
+        text-align: left;
+    }
+    
+    .about-img {
+        order: 2;
+        flex-basis: 35%;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .about-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .about-des {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-top: 0.3rem;
+    }
+    
+    .about-tab {
+        gap: 1rem;
+        margin: 0.8rem 0;
+        justify-content: flex-start;
+    }
+    
+    .tablinks {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .tab-contents ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .tab-contents ul li {
+        width: auto;
+    }
+    
+    .tab-contents ul li button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        width: auto;
+        margin-right: 8px;
+    }
+}
+
+/* Very Short Screens (Height less than 600px) */
+@media screen and (max-height: 600px) {
+    .about-container {
+        padding: 3% 12%;
+        min-height: auto;
+    }
+    
+    .about-tab {
+        margin-top: 0.8rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .about-container {
+        animation: none;
+    }
+    
+    .about-img img,
+    .about-img::before,
+    .tablinks,
+    .tablinks::after {
+        transition: none;
+    }
+    
+    .about-img:hover img {
+        transform: none;
+    }
+    
+    .about-img:hover::before {
+        opacity: 0;
+    }
+    
+    .tablinks:hover {
+        transform: none;
+    }
+    
+    .tablinks.active-links {
+        animation: none;
+    }
+    
+    @keyframes bounceIn {
+        0%, 100% { /* Disable animation */ }
+    }
+    
+    @keyframes fadeInUp {
+        0%, 100% { /* Disable animation */ }
+    }
+}
+
+/* Focus Styles for Accessibility */
+@media (prefers-reduced-motion: no-preference) {
+    .tablinks:focus-visible {
+        outline: 2px solid green;
+        outline-offset: 4px;
+    }
+    
+    .tab-contents ul li button:focus-visible {
+        outline: 2px solid green;
+        outline-offset: 2px;
+    }
+}
